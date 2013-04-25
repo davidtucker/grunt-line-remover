@@ -1,4 +1,4 @@
-# grunt-line-remover 
+# grunt-line-remover [![Build Status](https://travis-ci.org/davidtucker/grunt-line-remover.png)](https://travis-ci.org/davidtucker/grunt-line-remover) 
 
 > Removed Lines for Files of Any Type Using Regular Expressions That You Define
 
