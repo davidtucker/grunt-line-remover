@@ -37,9 +37,8 @@ module.exports = function(grunt) {
       var output = "";
 
       var fileContents = file.src.filter(function(filepath) {
-        grunt.log.warn('Path: ' + filepath);
         if (!grunt.file.exists(filepath)) {
-          grunt.log.warn('Source file "' + filepath + '" not found.');
+          grunt.log.writeln('X '.red + filepath + ' not found.');
           return false;
         } else {
           return true;
@@ -48,17 +47,23 @@ module.exports = function(grunt) {
       .map(grunt.file.read)
       .join(grunt.util.linefeed);
 
+      if(!fileContents) {
+        grunt.log.writeln('X '.red + file.src + ' not found or contained no content.');
+        return;
+      }
+
       lines = fileContents.split(grunt.util.linefeed);
       lines.forEach(function(line) {
         evaluatePattern(line, outputLines);
       });
 
       if (outputLines.length < 1) {
-        grunt.log.warn('Destination not written because no lines were remaining.');
+        grunt.log.writeln('X '.red + file.dest + '" Destination not written because no lines were remaining.');
       } else {
         output = outputLines.join(grunt.util.linefeed);
         grunt.file.write(file.dest, output);
-        grunt.log.writeln('File ' + file.dest + ' created.');
+        var savedMsg = "removed " + (lines.length - outputLines.length) + " lines";
+        grunt.log.writeln('✔ '.green + file.dest + (' (' + savedMsg + ')').grey);
       }
     });
 

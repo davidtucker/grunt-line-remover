@@ -1,6 +1,6 @@
 {
   "name": "grunt-line-remover",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Removes lines from files by using parameters you control",
   "keywords": [
     "gruntplugin"
