@@ -28,6 +28,10 @@ module.exports = function(grunt) {
           inclusionPattern: /html/g
         }
       },
+      globbingPattern: {
+        src: ['test/fixtures/*.html'],
+        dest: 'tmp'
+      },
       nonRegexPattern: {
         files: {
           'tmp/sampleCustomInclusionRuleNoRegexp.html': 'test/fixtures/sampleWithWhitespace.html'
