@@ -24,6 +24,16 @@ exports.lineremover = {
     test.done();
   },
 
+  globbingPattern: function(test) {
+    test.expect(1);
+
+    var actual = grunt.file.read('tmp/sampleWithWhitespaceGlob.html');
+    var expected = grunt.file.read('test/expected/sampleWithoutWhitespaceGlob.html');
+    test.equal(actual, expected, 'Should have removed lines using globbing pattern');
+
+    test.done();
+  },
+
   customExclusion: function(test) {
     test.expect(1);
 
