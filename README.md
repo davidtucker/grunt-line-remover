@@ -40,6 +40,13 @@ Default: `none`
 
 Removes lines that meet the pattern that is passed in.
 
+#### lineFeedCharacter
+
+Type: `String`  
+Default: `system specific line ending, on windows \r\n on linux \n`
+
+Specifies the character by which the file is split into lines
+
 #### Example config
 
 ```javascript
