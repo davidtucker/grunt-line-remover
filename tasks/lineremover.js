@@ -52,7 +52,7 @@ module.exports = function(grunt) {
         return;
       }
 
-      lines = fileContents.split(grunt.util.linefeed);
+      lines = fileContents.split(options.lineFeedCharacter || grunt.util.linefeed);
       lines.forEach(function(line) {
         evaluatePattern(line, outputLines);
       });
